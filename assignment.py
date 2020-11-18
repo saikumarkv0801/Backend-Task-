@@ -47,68 +47,65 @@ def semantic_duplicates(conferences):
 ### storing all confernces in one file
 allconf = conferences["paid"]+ conferences["free"]    
 if __name__ == "__main__":
-    print("#################")
-    print("choose option")
-    print("1) Free conferences")
-    print("2) paid conferences")
-    print("3) all conferences")
-    print("4) semantic")
-    print("5) create dataframe table")
-    print("#################")
-    option = int(input())
-    if option == 1:
-        freeconferences()
-    if option == 2:
-        paidconferences()
-    if option == 3:
-        all_conf()
-    if option == 4:
-        x = semantic_duplicates(allconf)
-        for y in x:
-            print("--------")
-            print(y["confName"],",",y["confStartDate"],",",y["city"],",",y["country"],",",y["entryType"],",",y["confUrl"])
-            print("--------")
-    if option == 5:
-        emailIds = []
-        city = []
-        country = []
-        imageUrl = []
-        venue = []
-        confName = []
-        state = []
-        confEndDate = []
-        conference_id = []
-        user_id  = []
-        confUrl = []
-        confStartDate = []
-        entryType = []
-        for detail in allconf:
-            emailIds.append(detail["emailId"])
-            city.append(detail["city"])
-            country.append(detail["country"])
-            imageUrl.append(detail["imageURL"])
-            venue.append(detail["venue"])
-            state.append(detail["state"])
-            confName.append(detail["confName"])
-            confStartDate.append(detail["confEndDate"])
-            confEndDate.append(detail["confEndDate"])
-            user_id.append(detail["user_id"])
-            entryType.append(detail["entryType"])
-            conference_id.append(detail["conference_id"])
-            confUrl.append(detail["confUrl"])
-        df = pd.DataFrame({"city":city,"country":country,"imageUrl":imageUrl,"venue":venue,"confName":confName,"entryType":entryType,"state":state,"confStartDate":confStartDate,"confEndDate":confEndDate,"conference_id":conference_id,"user_id":user_id,"confUrl":confUrl})
-        ## for good visual we ill use top 5 rows to see
-        print("for good looking we ill just visualize the top 5 rows")
-        print(df.head())
+    while (True):
+        print("#################")
+        print("choose option")
+        print("1) Free conferences")
+        print("2) paid conferences")
+        print("3) all conferences")
+        print("4) semantic")
+        print("5) create dataframe table")
+        print("6) exit")
+        print("#################")
+        option = int(input())
+        if option == 1:
+            freeconferences()
+        if option == 2:
+            paidconferences()
+        if option == 3:
+            all_conf()
+        if option == 4:
+            x = semantic_duplicates(allconf)
+            for y in x:
+                print("--------")
+                print(y["confName"],",",y["confStartDate"],",",y["city"],",",y["country"],",",y["entryType"],",",y["confUrl"])
+                print("--------")
+        if option == 5:
+            emailIds = []
+            city = []
+            country = []
+            imageUrl = []
+            venue = []
+            confName = []
+            state = []
+            confEndDate = []
+            conference_id = []
+            user_id  = []
+            confUrl = []
+            confStartDate = []
+            entryType = []
+            for detail in allconf:
+                emailIds.append(detail["emailId"])
+                city.append(detail["city"])
+                country.append(detail["country"])
+                imageUrl.append(detail["imageURL"])
+                venue.append(detail["venue"])
+                state.append(detail["state"])
+                confName.append(detail["confName"])
+                confStartDate.append(detail["confEndDate"])
+                confEndDate.append(detail["confEndDate"])
+                user_id.append(detail["user_id"])
+                entryType.append(detail["entryType"])
+                conference_id.append(detail["conference_id"])
+                confUrl.append(detail["confUrl"])
+            df = pd.DataFrame({"city":city,"country":country,"imageUrl":imageUrl,"venue":venue,"confName":confName,"entryType":entryType,"state":state,"confStartDate":confStartDate,"confEndDate":confEndDate,"conference_id":conference_id,"user_id":user_id,"confUrl":confUrl})
+            ## for good visual we ill use top 5 rows to see
+            print("for good looking we ill just visualize the top 5 rows")
+            print(df.head())
+        if option == 6:
+            exit()
 
 
-
-    
-    
-    
-    
-    
-    
     
     
     
